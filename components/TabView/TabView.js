@@ -91,7 +91,7 @@ export default class TabView extends Component {
 
   renderBar(props) {
     //Overflow is not supported on Android, then use a higher container view to support "big icon button"
-    let {barStyle, buttonContainerStyle, buttonStyle, onChange, children} = props;
+    let {barStyle, buttonContainerStyle, buttonStyle, onChange, children, activeOpacity} = props;
     let sheetCount = 0;
     return (
       <View pointerEvents='box-none'>
@@ -108,6 +108,7 @@ export default class TabView extends Component {
                 title={title}
                 icon={icon}
                 activeIcon={activeIcon}
+                activeOpacity={activeOpacity}
                 active={type === 'sheet' ? sheetIndex === this.activeIndex : false}
                 iconContainerStyle={iconContainerStyle}
                 badge={badge}
