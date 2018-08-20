@@ -8,7 +8,7 @@ import {View} from 'react-native';
 import Overlay from '../Overlay/Overlay';
 import ModalIndicatorView from './ModalIndicatorView';
 
-let miKey = null;
+// let miKey = null;
 let miOverlay = null;
 
 export default class ModalIndicator extends Overlay {
@@ -20,15 +20,23 @@ export default class ModalIndicator extends Overlay {
       miOverlay.text = text;
       return;
     }
-    miKey = super.show(
+    // miKey = super.show(
+    //   <this.IndicatorView text={text} ref={v => miOverlay = v} />
+    // );
+    let key = super.show(
       <this.IndicatorView text={text} ref={v => miOverlay = v} />
     );
+    return key
   }
 
-  static hide() {
-    if (miKey) {
-      super.hide(miKey);
-      miKey = null;
+  static hide(key) {
+    // if (miKey) {
+    //   super.hide(miKey);
+    //   miKey = null;
+    //   miOverlay = null;
+    // }
+    if (key) {
+      super.hide(key);
       miOverlay = null;
     }
   }
